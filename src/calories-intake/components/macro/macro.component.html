@@ -1,0 +1,32 @@
+<header class="flex justify-center w-full text-white">
+    <h1 class="p-5 bg-slate-600 px-32 rounded-lg border border-gray-800 shadow-lg shadow-gray-700">
+        Macro nutrition:
+    </h1>
+</header>
+<main class="flex flex-col gap-6 items-center mb-20">
+    <div class="w-full flex justify-center gap-2">
+        <button class="bg-slate-500 p-2 rounded-lg text-white shadow-md shadow-gray-700"
+                [ngClass]="{'bg-slate-700': carb === 'moderate'}" (click)="onClick('moderate')">
+            Moderate carbs(30p/35f/35c)
+        </button>
+        <button class="bg-slate-500 p-2 rounded-lg text-white shadow-md shadow-gray-700"
+                [ngClass]="{'bg-slate-700': carb === 'low'}" (click)="onClick('low')">
+            Low carbs(40p/40f/20c)
+        </button>
+        <button class="bg-slate-500 p-2 rounded-lg text-white shadow-md shadow-gray-700"
+                [ngClass]="{'bg-slate-700': carb === 'high'}" (click)="onClick('high')">
+            High carbs(30p/20f/50c)
+        </button>
+    </div>
+    <div class="flex flex-col text-center items-center border-gray-800 shadow-lg shadow-gray-600">
+        <div class="flex w-full" *ngFor="let macro of macros" >
+            <span class="p-5 px-20 w-3/6 border">
+                {{macro.macro}}
+            </span>
+            <span class="p-5 px-20 w-3/6 border">
+                {{(calories / 100 * macro.coef) | number:'1.2-2'}} calories
+                {{(((calories / 100) * macro.coef) / macro.val) | number:'1.2-2'}}g
+            </span>
+        </div>
+    </div>
+</main>

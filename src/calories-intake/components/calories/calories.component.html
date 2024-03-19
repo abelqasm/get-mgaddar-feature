@@ -1,0 +1,17 @@
+<header class="flex justify-center w-full text-white">
+    <h1 class="p-5 bg-slate-600 px-32 rounded-lg border border-gray-800 shadow-lg shadow-gray-700">
+        Your calories intake are:
+    </h1>
+</header>
+<main class="flex flex-col gap-6 items-center mb-20">
+    <div class="flex flex-col text-center items-center border-gray-800 shadow-lg shadow-gray-600">
+        <div class="flex w-full" *ngFor="let advice of weightAdvices" >
+            <span class="p-5 px-20 w-5/6 border">
+                {{advice.weight}}
+            </span>
+            <span class="p-5 px-20 w-1/6 border">
+                {{advice.val}} cal/day
+            </span>
+        </div>
+    </div>
+</main>
